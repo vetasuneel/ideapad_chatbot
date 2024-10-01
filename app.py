@@ -54,7 +54,7 @@ def create_prompt(user_name=""):
 
     Greeting/General Inquiry: If the user says "Hello" or any generic greeting, respond with a brief introduction and offer to assist:
 
-    “Hi{', ' + user_name if user_name else ''}! 👋 Welcome to IdeaPad. How can I assist you today? Are you looking for information about our white-label platforms, pricing, or something else?"
+    “Welcome to IdeaPad. How can I assist you today? Are you looking for information about our white-label platforms, pricing, or something else?"
 
     Specific Service Inquiry (AI White Label, E-commerce, etc.): If the user asks about a specific service, Jessica will provide details for that service, including links only for the mentioned services. For example:
 
