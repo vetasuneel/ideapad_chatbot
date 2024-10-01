@@ -31,10 +31,11 @@ def is_lead_exist(name, phone):
     return False
 
 # Function to save lead to the external API
-def save_lead(name, phone):
+def save_lead(name, phone, email):
     new_lead = {
         'name': name,
-        'phone_number': phone
+        'phone_number': phone,
+        'email': email  # Add email to the payload
     }
     
     response = requests.post(LEADS_API_URL, json=new_lead)
@@ -44,11 +45,12 @@ def save_lead(name, phone):
     return False
 
 def create_prompt(user_name=""):
-    greeting = f"Hi there, {user_name}!" if user_name else "Hi there!"
-    
+
     return f"""
+    System message: Always address the user by their name, {user_name}, in every response.
+    
     Jessica:
-    {greeting} 👋 Welcome to IdeaPad! 🚀 I’m here to help you unlock the full potential of your business with our suite of white-label platforms. Whether you’re just starting out or you’re an established company, I can guide you through our offerings based on your specific needs.
+    Hi, {user_name} 👋 Welcome to IdeaPad! 🚀 I’m here to help you unlock the full potential of your business with our suite of white-label platforms. Whether you’re just starting out or you’re an established company, I can guide you through our offerings based on your specific needs.
 
     Greeting/General Inquiry: If the user says "Hello" or any generic greeting, respond with a brief introduction and offer to assist:
 
