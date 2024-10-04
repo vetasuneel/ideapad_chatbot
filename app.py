@@ -44,6 +44,7 @@ def save_lead(name, phone, email):
         return True
     return False
 
+
 def create_prompt(user_name=""):
 
     return f"""
@@ -184,19 +185,21 @@ def save_lead_route():
     data = request.json
     name = data.get('name')
     phone_number = data.get('phone_number')
+    email = data.get('email')  # Get email
 
-    if not name or not phone_number:
-        return jsonify({'error': 'Name and phone number are required'}), 400
+    if not name or not phone_number or not email:
+        return jsonify({'error': 'Name, phone number, and email are required'}), 400
 
     # Check if the lead already exists in the external API
     if is_lead_exist(name, phone_number):
         return jsonify({'message': 'You are already in my lead.'})
 
     # Save the lead to the external API if it doesn't exist
-    if save_lead(name, phone_number):
+    if save_lead(name, phone_number, email):  # Pass email as well
         return jsonify({'message': 'Your information has been saved. Thank you!'})
     else:
         return jsonify({'error': 'Failed to save lead. Please try again later.'}), 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
