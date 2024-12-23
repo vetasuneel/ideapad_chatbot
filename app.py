@@ -14,7 +14,7 @@ CORS(app)  # Enable CORS for all routes
 app.secret_key = 'your_secret_key'
 
 # Setup your LLM
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCNO80NVWnNjjTLLRCxYkxS5vWZB2OG05g"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyA72hFME8DT2j3rlGrNLUFQtpAYaO0e7_g"
 gemini_llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
 
 # Define your external API endpoint
