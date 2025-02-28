@@ -15,7 +15,7 @@ app.secret_key = 'your_secret_key'
 
 # Setup your LLM
 os.environ["GOOGLE_API_KEY"] = "AIzaSyA72hFME8DT2j3rlGrNLUFQtpAYaO0e7_g"
-gemini_llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
+gemini_llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.3)
 
 # Define your external API endpoint
 LEADS_API_URL = 'https://66df04adde4426916ee34acd.mockapi.io/lead'
